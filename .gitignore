@@ -1,0 +1,14 @@
+
+# Database lokal (jangan upload)
+/config/database.php
+
+# File diagnostik
+/diagnostic.php
+
+# File ZIP cadangan
+*.zip
+
+# File sementara
+*.log
+.DS_Store
+Thumbs.db

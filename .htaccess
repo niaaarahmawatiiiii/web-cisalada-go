@@ -1,0 +1,260 @@
+# ==========================================================
+# CISALADA GO
+# BASIC WEB SECURITY
+# ==========================================================
+
+RewriteEngine On
+
+
+# ==========================================================
+# 1. BLOKIR DIRECTORY LISTING
+# ==========================================================
+
+Options -Indexes
+
+
+# ==========================================================
+# 2. BLOKIR AKSES FILE SENSITIF
+# ==========================================================
+
+<FilesMatch "^(\.env|composer\.(json|lock)|package(-lock)?\.json|phpunit\.xml|config\.php|database\.php|auth\.php|functions\.php)$">
+
+    Require all denied
+
+</FilesMatch>
+
+
+# ==========================================================
+# 3. BLOKIR FILE BACKUP / DUMP / SOURCE
+# ==========================================================
+
+<FilesMatch "\.(bak|backup|old|orig|save|swp|sql|zip|tar|gz|7z)$">
+
+    Require all denied
+
+</FilesMatch>
+
+
+# ==========================================================
+# 4. BLOKIR FILE TERSEMBUNYI
+# ==========================================================
+
+<FilesMatch "^\.">
+
+    Require all denied
+
+</FilesMatch>
+
+
+# ==========================================================
+# 5. BLOKIR AKSES FOLDER CONFIG
+# ==========================================================
+
+RewriteRule ^config(?:/|$) - [F,L]
+
+
+# ==========================================================
+# 6. BLOKIR AKSES FOLDER INCLUDES
+# ==========================================================
+
+RewriteRule ^includes(?:/|$) - [F,L]
+
+
+# ==========================================================
+# 7. BLOKIR AKSES FOLDER ADMIN DENGAN CARA UMUM
+# ==========================================================
+#
+# JANGAN blokir /admin seluruhnya karena dashboard memang
+# harus tetap bisa diakses.
+#
+# Proteksi admin ditangani oleh:
+# admin/auth.php
+#
+# ==========================================================
+
+
+
+# ==========================================================
+# 8. HEADER SECURITY
+# ==========================================================
+
+<IfModule mod_headers.c>
+
+    # ------------------------------------------------------
+    # Mencegah browser menebak tipe MIME
+    # ------------------------------------------------------
+
+    Header always set X-Content-Type-Options "nosniff"
+
+
+    # ------------------------------------------------------
+    # Mencegah halaman ditanam ke iframe dari origin lain
+    # ------------------------------------------------------
+
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+
+    # ------------------------------------------------------
+    # Mengurangi informasi URL saat berpindah halaman
+    # ------------------------------------------------------
+
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+
+    # ------------------------------------------------------
+    # Membatasi fitur browser yang tidak diperlukan
+    # ------------------------------------------------------
+
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+
+    # ------------------------------------------------------
+    # Upgrade koneksi HTTP ke HTTPS bila sudah tersedia
+    #
+    # JANGAN aktifkan HSTS dulu di localhost.
+    # Nanti kita aktifkan setelah hosting HTTPS benar-benar
+    # sudah aktif dan stabil.
+    # ------------------------------------------------------
+
+</IfModule>
+
+
+# ==========================================================
+# 9. BLOKIR EKSEKUSI SCRIPT DI FOLDER UPLOAD
+# ==========================================================
+#
+# Folder upload hanya boleh berisi:
+# gambar / dokumen yang memang diizinkan.
+#
+# File script tidak boleh dieksekusi.
+#
+# NC = tidak membedakan huruf besar / kecil.
+#
+# ==========================================================
+
+
+# ----------------------------------------------------------
+# PHP
+# ----------------------------------------------------------
+
+RewriteRule ^assets/uploads/.*\.(php|php3|php4|php5|php7|php8|phtml|phar)$ - [F,L,NC]
+
+RewriteRule ^uploads/.*\.(php|php3|php4|php5|php7|php8|phtml|phar)$ - [F,L,NC]
+
+
+# ----------------------------------------------------------
+# CGI / PERL
+# ----------------------------------------------------------
+
+RewriteRule ^assets/uploads/.*\.(cgi|pl)$ - [F,L,NC]
+
+RewriteRule ^uploads/.*\.(cgi|pl)$ - [F,L,NC]
+
+
+# ----------------------------------------------------------
+# SHELL SCRIPT
+# ----------------------------------------------------------
+
+RewriteRule ^assets/uploads/.*\.(sh|bash)$ - [F,L,NC]
+
+RewriteRule ^uploads/.*\.(sh|bash)$ - [F,L,NC]
+
+
+# ----------------------------------------------------------
+# ASP / ASPX
+# ----------------------------------------------------------
+
+RewriteRule ^assets/uploads/.*\.(asp|aspx)$ - [F,L,NC]
+
+RewriteRule ^uploads/.*\.(asp|aspx)$ - [F,L,NC]
+
+
+# ----------------------------------------------------------
+# JSP
+# ----------------------------------------------------------
+
+RewriteRule ^assets/uploads/.*\.jsp$ - [F,L,NC]
+
+RewriteRule ^uploads/.*\.jsp$ - [F,L,NC]
+
+
+
+# ==========================================================
+# 10. BLOKIR AKSES LANGSUNG FILE SCRIPT DI UPLOAD
+# ==========================================================
+
+<FilesMatch "\.(php|php3|php4|php5|php7|php8|phtml|phar|cgi|pl|sh|bash|asp|aspx|jsp)$">
+
+    <If "%{REQUEST_URI} =~ m#^/cisalada-go/assets/uploads/#">
+
+        Require all denied
+
+    </If>
+
+</FilesMatch>
+
+
+
+# ==========================================================
+# 11. BLOKIR AKSES LANGSUNG FILE .HTACCESS
+# ==========================================================
+
+<Files ".htaccess">
+
+    Require all denied
+
+</Files>
+
+
+# ==========================================================
+# 12. BLOKIR FILE INTERNAL / DEVELOPMENT
+# ==========================================================
+#
+# File-file berikut tidak dibutuhkan oleh pengunjung website
+# dan sebaiknya tidak bisa dibuka langsung dari browser.
+#
+# ==========================================================
+
+
+# ----------------------------------------------------------
+# FILE LOG / CONFIG / TEMPORARY
+# ----------------------------------------------------------
+
+<FilesMatch "\.(ini|conf|config|cnf|log|tmp|temp)$">
+
+    Require all denied
+
+</FilesMatch>
+
+
+# ----------------------------------------------------------
+# SOURCE MAP
+# ----------------------------------------------------------
+
+<FilesMatch "\.map$">
+
+    Require all denied
+
+</FilesMatch>
+
+
+# ----------------------------------------------------------
+# DOKUMENTASI / FILE DEVELOPMENT
+# ----------------------------------------------------------
+
+<FilesMatch "^(README|README\.md|CHANGELOG|CHANGELOG\.md|CONTRIBUTING)$">
+
+    Require all denied
+
+</FilesMatch>
+
+
+# ----------------------------------------------------------
+# DATABASE / BACKUP TAMBAHAN
+# ----------------------------------------------------------
+
+<FilesMatch "\.(sqlite|sqlite3|db|dump|rar)$">
+
+    Require all denied
+
+</FilesMatch>

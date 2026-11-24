@@ -1,0 +1,2154 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #212529;
+    background-color: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+/* ======================================================
+   NAVBAR BRAND
+====================================================== */
+
+.navbar-brand {
+
+    letter-spacing:
+        0.5px;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+
+}
+
+
+.navbar-brand:hover {
+
+    transform:
+        translateY(-1px);
+
+    opacity:
+        0.95;
+
+}
+
+
+
+/* ======================================================
+   NAV LINK
+====================================================== */
+
+.nav-link {
+
+    font-weight:
+        500;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.nav-link:hover {
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+
+    min-height:
+        600px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    background:
+        linear-gradient(
+            rgba(
+                0,
+                0,
+                0,
+                0.45
+            ),
+            rgba(
+                0,
+                0,
+                0,
+                0.45
+            )
+        ),
+        url("../images/hero.jpg");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+}
+
+
+.hero-content {
+
+    color:
+        white;
+
+    animation:
+        heroContentReveal
+        0.8s
+        ease-out
+        both;
+
+}
+
+
+@keyframes heroContentReveal {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* ======================================================
+   SECTION
+====================================================== */
+
+.section-padding {
+
+    padding:
+        70px 0;
+
+}
+
+
+.section-title {
+
+    font-weight:
+        700;
+
+    margin-bottom:
+        10px;
+
+}
+
+
+.section-subtitle {
+
+    color:
+        #6c757d;
+
+    margin-bottom:
+        40px;
+
+}
+
+
+
+/* ======================================================
+   STAT CARD
+====================================================== */
+
+.stat-card {
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        box-shadow 0.35s ease;
+
+}
+
+
+.stat-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -130%;
+
+    width:
+        65%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                255,
+                255,
+                255,
+                0.40
+            ),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg)
+        translateZ(15px);
+
+    transition:
+        left 0.70s ease;
+
+    pointer-events:
+        none;
+
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-8px)
+        perspective(900px)
+        rotateX(1deg)
+        rotateY(-1deg)
+        scale(1.015);
+
+    box-shadow:
+        0 18px 40px
+        rgba(
+            0,
+            0,
+            0,
+            0.14
+        ) !important;
+
+}
+
+
+.stat-card:hover::before {
+
+    left:
+        150%;
+
+}
+
+
+
+.stat-card .card-body {
+
+    transform:
+        translateZ(8px);
+
+}
+
+
+.stat-card i {
+
+    display:
+        inline-block;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+
+}
+
+
+.stat-card:hover i {
+
+    transform:
+        translateZ(12px)
+        scale(1.10)
+        rotate(4deg);
+
+    filter:
+        drop-shadow(
+            0 4px 6px
+            rgba(
+                0,
+                0,
+                0,
+                0.12
+            )
+        );
+
+}
+
+
+
+/* ======================================================
+   INFO CARD
+====================================================== */
+
+.info-card {
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+
+    position:
+        relative;
+
+    transform-style:
+        preserve-3d;
+
+    box-shadow:
+        0 3px 15px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        box-shadow 0.35s ease;
+
+}
+
+
+.info-card:hover {
+
+    transform:
+        translateY(-8px)
+        perspective(900px)
+        rotateX(1deg)
+        rotateY(-1deg)
+        scale(1.012);
+
+    box-shadow:
+        0 18px 42px
+        rgba(
+            0,
+            0,
+            0,
+            0.15
+        );
+
+}
+
+
+.info-card .card-body {
+
+    transform:
+        translateZ(8px);
+
+}
+
+
+.info-card img {
+
+    height:
+        220px;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform 0.55s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        filter 0.35s ease;
+
+}
+
+
+.info-card:hover img {
+
+    transform:
+        scale(1.07);
+
+    filter:
+        brightness(1.04);
+
+}
+
+
+
+/* ======================================================
+   QUICK CARD
+====================================================== */
+
+.quick-card {
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    position:
+        relative;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        box-shadow 0.35s ease;
+
+}
+
+
+.quick-card:hover {
+
+    transform:
+        translateY(-9px)
+        perspective(900px)
+        rotateX(1deg)
+        rotateY(1deg)
+        scale(1.015);
+
+    box-shadow:
+        0 18px 38px
+        rgba(
+            0,
+            0,
+            0,
+            0.13
+        ) !important;
+
+}
+
+
+.quick-card .card-body {
+
+    transform:
+        translateZ(8px);
+
+}
+
+
+.quick-card i {
+
+    display:
+        inline-block;
+
+    transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
+
+}
+
+
+.quick-card:hover i {
+
+    transform:
+        translateZ(14px)
+        scale(1.12);
+
+    opacity:
+        0.92;
+
+}
+
+
+
+/* ======================================================
+   GENERIC CARD
+====================================================== */
+
+.card {
+
+    transition:
+        transform 0.30s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        box-shadow 0.30s ease;
+
+}
+
+
+.card:hover {
+
+    box-shadow:
+        0 12px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.09
+        );
+
+}
+
+
+
+/* ======================================================
+   MENU CARD
+====================================================== */
+
+.menu-card {
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        box-shadow 0.35s ease;
+
+}
+
+
+.menu-card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -130%;
+
+    width:
+        65%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                255,
+                255,
+                255,
+                0.38
+            ),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.65s ease;
+
+    pointer-events:
+        none;
+
+}
+
+
+.menu-card:hover {
+
+    transform:
+        translateY(-8px)
+        perspective(900px)
+        rotateX(1deg)
+        rotateY(-1deg)
+        scale(1.012);
+
+    box-shadow:
+        0 16px 34px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        ) !important;
+
+}
+
+
+.menu-card:hover::before {
+
+    left:
+        150%;
+
+}
+
+
+.menu-card .card-body {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    transform:
+        translateZ(8px);
+
+}
+
+
+
+/* ======================================================
+   MENU ICON
+====================================================== */
+
+.menu-icon {
+
+    transition:
+        transform 0.30s ease,
+        box-shadow 0.30s ease;
+
+}
+
+
+.menu-card:hover .menu-icon {
+
+    transform:
+        translateZ(14px)
+        scale(1.06)
+        rotate(-2deg);
+
+    box-shadow:
+        0 6px 16px
+        rgba(
+            13,
+            110,
+            253,
+            0.12
+        );
+
+}
+
+
+
+/* ======================================================
+   BUTTON
+====================================================== */
+
+.btn {
+
+    transition:
+        transform 0.20s ease,
+        box-shadow 0.20s ease,
+        filter 0.20s ease;
+
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 7px 18px
+        rgba(
+            0,
+            0,
+            0,
+            0.11
+        );
+
+}
+
+
+.btn:active {
+
+    transform:
+        translateY(0);
+
+    box-shadow:
+        none;
+
+}
+
+
+
+/* ======================================================
+   BUTTON ICON
+====================================================== */
+
+.btn i {
+
+    display:
+        inline-block;
+
+    transition:
+        transform 0.20s ease;
+
+}
+
+
+.btn:hover i {
+
+    transform:
+        translateX(2px);
+
+}
+
+
+
+/* ======================================================
+   FORM
+====================================================== */
+
+input,
+textarea,
+select,
+.form-control,
+.form-select {
+
+    transition:
+        border-color 0.20s ease,
+        box-shadow 0.20s ease,
+        transform 0.20s ease;
+
+}
+
+
+input:hover,
+textarea:hover,
+select:hover,
+.form-control:hover,
+.form-select:hover {
+
+    border-color:
+        #b6c8e6;
+
+}
+
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.form-select:focus {
+
+    transform:
+        translateY(-1px);
+
+    border-color:
+        #86b7fe;
+
+    box-shadow:
+        0 0 0
+        0.20rem
+        rgba(
+            13,
+            110,
+            253,
+            0.12
+        ) !important;
+
+}
+
+
+
+/* ======================================================
+   IMAGE GLOBAL
+====================================================== */
+
+img {
+
+    max-width:
+        100%;
+
+}
+
+
+img:not(
+    .cisalada-brand-logo
+):not(
+    .cisalada-loader-logo
+):not(
+    .cisalada-full-loader-logo
+) {
+
+    transition:
+        opacity 0.40s ease;
+
+}
+
+
+
+/* ======================================================
+   IMAGE HOVER
+====================================================== */
+
+.hover-image {
+
+    overflow:
+        hidden;
+
+}
+
+
+.hover-image img {
+
+    transition:
+        transform 0.55s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+}
+
+
+.hover-image:hover img {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+
+/* ======================================================
+   LINKS
+====================================================== */
+
+a {
+
+    transition:
+        color 0.20s ease;
+
+}
+
+
+
+/* ======================================================
+   BADGE
+====================================================== */
+
+.badge {
+
+    transition:
+        transform 0.20s ease;
+
+}
+
+
+.badge:hover {
+
+    transform:
+        translateY(-1px)
+        scale(1.02);
+
+}
+
+
+
+/* ======================================================
+   ALERT
+====================================================== */
+
+.alert {
+
+    border-radius:
+        12px;
+
+    transition:
+        transform 0.20s ease,
+        box-shadow 0.20s ease;
+
+}
+
+
+.alert:hover {
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.06
+        );
+
+}
+
+
+
+/* ======================================================
+   TABLE
+====================================================== */
+
+.table tbody tr {
+
+    transition:
+        background-color 0.20s ease,
+        transform 0.20s ease;
+
+}
+
+
+.table tbody tr:hover {
+
+    background-color:
+        rgba(
+            13,
+            110,
+            253,
+            0.035
+        );
+
+}
+
+
+
+/* ======================================================
+   SCROLL REVEAL
+====================================================== */
+
+.reveal {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+
+}
+
+
+.reveal.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+
+/* ======================================================
+   REVEAL LEFT
+====================================================== */
+
+.reveal-left {
+
+    opacity:
+        0;
+
+    transform:
+        translateX(-30px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+
+}
+
+
+.reveal-left.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+
+/* ======================================================
+   REVEAL RIGHT
+====================================================== */
+
+.reveal-right {
+
+    opacity:
+        0;
+
+    transform:
+        translateX(30px);
+
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+
+}
+
+
+.reveal-right.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateX(0);
+
+}
+
+
+
+/* ======================================================
+   SCALE REVEAL
+====================================================== */
+
+.reveal-scale {
+
+    opacity:
+        0;
+
+    transform:
+        scale(0.94);
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+
+}
+
+
+.reveal-scale.show {
+
+    opacity:
+        1;
+
+    transform:
+        scale(1);
+
+}
+
+
+
+/* ======================================================
+   STAGGER ANIMATION
+====================================================== */
+
+.reveal-stagger {
+
+    opacity:
+        0;
+
+    transform:
+        translateY(20px);
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+
+}
+
+
+.reveal-stagger.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.reveal-stagger:nth-child(1) {
+
+    transition-delay:
+        0.05s;
+
+}
+
+
+.reveal-stagger:nth-child(2) {
+
+    transition-delay:
+        0.10s;
+
+}
+
+
+.reveal-stagger:nth-child(3) {
+
+    transition-delay:
+        0.15s;
+
+}
+
+
+.reveal-stagger:nth-child(4) {
+
+    transition-delay:
+        0.20s;
+
+}
+
+
+.reveal-stagger:nth-child(5) {
+
+    transition-delay:
+        0.25s;
+
+}
+
+
+.reveal-stagger:nth-child(6) {
+
+    transition-delay:
+        0.30s;
+
+}
+
+
+.reveal-stagger:nth-child(7) {
+
+    transition-delay:
+        0.35s;
+
+}
+
+
+.reveal-stagger:nth-child(8) {
+
+    transition-delay:
+        0.40s;
+
+}
+
+
+
+/* ======================================================
+   DOKUMEN CARD
+====================================================== */
+
+a[href="dokumen/"] {
+
+    display:
+        block;
+
+    color:
+        inherit;
+
+    text-decoration:
+        none;
+
+}
+
+
+a[href="dokumen/"] .card {
+
+    border:
+        none !important;
+
+    border-radius:
+        14px !important;
+
+    background:
+        #ffffff;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    transform-style:
+        preserve-3d;
+
+    box-shadow:
+        0 3px 15px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        ) !important;
+
+    transition:
+        transform 0.35s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        box-shadow 0.35s ease;
+
+}
+
+
+a[href="dokumen/"] .card::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    left:
+        -130%;
+
+    width:
+        65%;
+
+    height:
+        100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(
+                255,
+                255,
+                255,
+                0.40
+            ),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.65s ease;
+
+    pointer-events:
+        none;
+
+}
+
+
+a[href="dokumen/"] .card:hover {
+
+    transform:
+        translateY(-8px)
+        perspective(900px)
+        rotateX(1deg)
+        rotateY(-1deg)
+        scale(1.012);
+
+    box-shadow:
+        0 16px 34px
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        ) !important;
+
+}
+
+
+a[href="dokumen/"] .card:hover::before {
+
+    left:
+        150%;
+
+}
+
+
+a[href="dokumen/"] .card-body {
+
+    position:
+        relative;
+
+    z-index:
+        1;
+
+    transform:
+        translateZ(8px);
+
+}
+
+
+
+/* ======================================================
+   DOKUMEN ICON
+====================================================== */
+
+a[href="dokumen/"]
+.bi-file-earmark-text {
+
+    display:
+        inline-block;
+
+    transition:
+        transform 0.30s ease;
+
+}
+
+
+a[href="dokumen/"] .card:hover
+.bi-file-earmark-text {
+
+    transform:
+        translateZ(12px)
+        translateY(-2px)
+        scale(1.08);
+
+}
+
+
+
+/* ======================================================
+   DOKUMEN LINK
+====================================================== */
+
+a[href="dokumen/"]:hover {
+
+    color:
+        #212529;
+
+}
+
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+footer {
+
+    margin-top:
+        80px;
+
+}
+
+
+
+/* ======================================================
+   FOCUS
+====================================================== */
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+
+    outline:
+        none;
+
+}
+
+
+
+/* ======================================================
+   MOBILE RESPONSIVE
+   TAHAP 1
+====================================================== */
+
+@media (
+    max-width: 768px
+) {
+
+
+    /* ==================================================
+       GLOBAL
+    ================================================== */
+
+    html,
+    body {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        overflow-x:
+            hidden;
+
+    }
+
+
+    /* ==================================================
+       CONTAINER
+    ================================================== */
+
+    .container {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        padding-left:
+            18px;
+
+        padding-right:
+            18px;
+
+    }
+
+
+    /* ==================================================
+       SECTION
+    ================================================== */
+
+    .section-padding {
+
+        padding:
+            48px 0;
+
+    }
+
+
+    .section-title {
+
+        font-size:
+            1.65rem;
+
+        line-height:
+            1.25;
+
+    }
+
+
+    .section-subtitle {
+
+        font-size:
+            0.95rem;
+
+        line-height:
+            1.6;
+
+        margin-bottom:
+            28px;
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .hero {
+
+        min-height:
+            520px;
+
+        padding:
+            60px 0;
+
+        background-position:
+            center center;
+
+    }
+
+
+    .hero-content {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            2rem;
+
+        line-height:
+            1.2;
+
+        word-break:
+            normal;
+
+        overflow-wrap:
+            break-word;
+
+    }
+
+
+    .hero p {
+
+        font-size:
+            0.98rem;
+
+        line-height:
+            1.6;
+
+    }
+
+
+    /* ==================================================
+       NAVBAR
+    ================================================== */
+
+    .navbar {
+
+        width:
+            100%;
+
+    }
+
+
+    .navbar .container,
+    .navbar .container-fluid {
+
+        padding-left:
+            16px;
+
+        padding-right:
+            16px;
+
+    }
+
+
+    .navbar-brand {
+
+        max-width:
+            calc(
+                100vw - 90px
+            );
+
+        white-space:
+            nowrap;
+
+        overflow:
+            hidden;
+
+        text-overflow:
+            ellipsis;
+
+        font-size:
+            1rem;
+
+    }
+
+
+    .navbar-toggler {
+
+        flex-shrink:
+            0;
+
+    }
+
+
+    .navbar-collapse {
+
+        padding-top:
+            10px;
+
+        padding-bottom:
+            8px;
+
+    }
+
+
+    .navbar-nav {
+
+        width:
+            100%;
+
+    }
+
+
+    .navbar-nav .nav-item {
+
+        width:
+            100%;
+
+    }
+
+
+    .navbar-nav .nav-link {
+
+        padding-top:
+            9px;
+
+        padding-bottom:
+            9px;
+
+    }
+
+
+    .navbar-nav .btn {
+
+        width:
+            100%;
+
+        margin-left:
+            0 !important;
+
+        margin-right:
+            0 !important;
+
+    }
+
+
+    /* ==================================================
+       CARD
+    ================================================== */
+
+    .card-body {
+
+        min-width:
+            0;
+
+    }
+
+
+    .stat-card,
+    .info-card,
+    .quick-card,
+    .menu-card {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+    }
+
+
+    /* ==================================================
+       HOVER MOBILE
+       Karena HP tidak mempunyai hover seperti desktop,
+       kita hilangkan tilt agar tidak terasa aneh.
+    ================================================== */
+
+    .stat-card:hover,
+    .info-card:hover,
+    .quick-card:hover,
+    .menu-card:hover {
+
+        transform:
+            translateY(-4px)
+            scale(1.005);
+
+    }
+
+
+    a[href="dokumen/"] .card:hover {
+
+        transform:
+            translateY(-4px)
+            scale(1.005);
+
+    }
+
+
+    /* ==================================================
+       IMAGE
+    ================================================== */
+
+    .info-card img {
+
+        width:
+            100%;
+
+        height:
+            210px;
+
+        object-fit:
+            cover;
+
+    }
+
+
+    img {
+
+        height:
+            auto;
+
+    }
+
+
+    /* ==================================================
+       BUTTON
+    ================================================== */
+
+    .btn {
+
+        min-height:
+            42px;
+
+        display:
+            inline-flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        white-space:
+            normal;
+
+    }
+
+
+    .btn-sm {
+
+        min-height:
+            38px;
+
+    }
+
+
+    /* ==================================================
+       FORM
+    ================================================== */
+
+    .form-control,
+    .form-select {
+
+        min-height:
+            44px;
+
+    }
+
+
+    textarea.form-control {
+
+        min-height:
+            120px;
+
+    }
+
+
+    /* ==================================================
+       TABLE
+    ================================================== */
+
+    .table-responsive {
+
+        width:
+            100%;
+
+        overflow-x:
+            auto;
+
+        -webkit-overflow-scrolling:
+            touch;
+
+    }
+
+
+    .table {
+
+        min-width:
+            650px;
+
+    }
+
+
+    /* ==================================================
+       BADGE
+    ================================================== */
+
+    .badge {
+
+        white-space:
+            normal;
+
+        line-height:
+            1.4;
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+
+        margin-top:
+            50px;
+
+    }
+
+
+}
+
+
+
+/* ======================================================
+   MOBILE SMALL
+====================================================== */
+
+@media (
+    max-width: 575.98px
+) {
+
+
+    /* ==================================================
+       CONTAINER
+    ================================================== */
+
+    .container {
+
+        padding-left:
+            14px;
+
+        padding-right:
+            14px;
+
+    }
+
+
+    /* ==================================================
+       SECTION
+    ================================================== */
+
+    .section-padding {
+
+        padding:
+            42px 0;
+
+    }
+
+
+    .section-title {
+
+        font-size:
+            1.45rem;
+
+    }
+
+
+    .section-subtitle {
+
+        font-size:
+            0.9rem;
+
+    }
+
+
+    /* ==================================================
+       HERO
+    ================================================== */
+
+    .hero {
+
+        min-height:
+            480px;
+
+        padding:
+            50px 0;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            1.75rem;
+
+    }
+
+
+    .hero p {
+
+        font-size:
+            0.92rem;
+
+    }
+
+
+    /* ==================================================
+       CARD
+    ================================================== */
+
+    .card {
+
+        border-radius:
+            12px;
+
+    }
+
+
+    .stat-card,
+    .info-card,
+    .quick-card,
+    .menu-card {
+
+        border-radius:
+            12px;
+
+    }
+
+
+    /* ==================================================
+       CARD BODY
+    ================================================== */
+
+    .stat-card .card-body,
+    .info-card .card-body,
+    .quick-card .card-body,
+    .menu-card .card-body {
+
+        padding:
+            18px;
+
+    }
+
+
+    /* ==================================================
+       IMAGE
+    ================================================== */
+
+    .info-card img {
+
+        height:
+            190px;
+
+    }
+
+
+    /* ==================================================
+       BUTTON
+    ================================================== */
+
+    .btn {
+
+        width:
+            auto;
+
+        max-width:
+            100%;
+
+    }
+
+
+    .btn.w-100 {
+
+        width:
+            100% !important;
+
+    }
+
+
+    /* ==================================================
+       FORM
+    ================================================== */
+
+    input,
+    textarea,
+    select,
+    .form-control,
+    .form-select {
+
+        font-size:
+            16px;
+
+    }
+
+
+    /* ==================================================
+       ALERT
+    ================================================== */
+
+    .alert {
+
+        font-size:
+            0.92rem;
+
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+
+        margin-top:
+            42px;
+
+    }
+
+
+}
+
+
+
+/* ======================================================
+   VERY SMALL SCREEN
+====================================================== */
+
+@media (
+    max-width: 380px
+) {
+
+
+    .container {
+
+        padding-left:
+            12px;
+
+        padding-right:
+            12px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size:
+            1.55rem;
+
+    }
+
+
+    .hero p {
+
+        font-size:
+            0.88rem;
+
+    }
+
+
+    .section-title {
+
+        font-size:
+            1.30rem;
+
+    }
+
+
+    .navbar-brand {
+
+        font-size:
+            0.92rem;
+
+    }
+
+
+}
+
+
+
+/* ======================================================
+   REDUCED MOTION
+====================================================== */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+
+    *,
+    *::before,
+    *::after {
+
+        scroll-behavior:
+            auto !important;
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
